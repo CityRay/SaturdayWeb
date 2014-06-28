@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <META http-equiv=Content-Type content="text/html; charset=utf-8">
+    <title>Handlebars.js</title>
+  </head>
+  <body>
+    <h1>Handlebars.js 使用方法</h1>
+    <!--基础html框架-->
+    <table>
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>性别</th>
+          <th>年龄</th>
+          <th>個人網站</th>
+          <th>興趣喜好</th>
+        </tr>
+      </thead>
+      <tbody id="tableList">
+        
+      </tbody>
+    </table>
+    
+    <!--插件引用-->
+    <script type="text/javascript" src="script/jquery.js"></script>
+    <script type="text/javascript" src="script/handlebars-1.0.0.beta.6.js"></script>
+    
+    <!--Handlebars.js模版-->
+    <!--Handlebars.js模版放在script标签中，保留了html原有层次结构,模版中要写一些操作语句-->
+    <!--id可以用来唯一确定一个模版,type是模版固定的写法-->
+    <script id="table-template" type="text/x-handlebars-template">
+      {{#each member}}
+        {{#if name}}
+          {{#compare age 20}}
+            <tr>
+              <td>{{name}}</td>
+              <td>{{transformat sex}}</td>
+              <td>{{age}}</td>
+              <td>{{{homePage}}}</td>
+              <td>
+                {{#with favorite}}
+                  {{#each this}}
+                      <p>{{this}}</p>
+                  {{/each}}
+                {{/with}}
+              </td>
+            </tr>
+            {{else}}
+              <tr>
+                <td>none</td>
+                <td>none</td>
+                <td>none</td>
+                <td>none</td>
+              </tr>
+          {{/compare}}
+        {{/if}}
+      {{/each}}
+    </script>
+    
+    <!--进行数据处理、html构造-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        //模拟的json对象
+        var data = {
+                    "student": [
+                        {
+                            "name": "Ray",
+                            "sex": "0",
+                            "age": 20,
+                            "homePage":"<a href='http://www.cnblogs.com/iyangyuan/p/3471367.html'>google</a>"
+                        },
+                        {
+                            "name": "Mary",
+                            "sex": "1",
+                            "age": 22,
+                            "homePage":"<a href='javascript:void(0);'>Mary PAGE</a>"
+                        },
+                        {
+                            "name": "妞妞",
+                            "sex": "1",
+                            "age": 18,
+                            "homePage":"<a href='javascript:void(0);'>Mary PAGE</a>"
+                        }
+                    ],
+
+                    "member":[
+                        {
+                            "name":"WANG",
+                            "sex":"0",
+                            "age": 30,
+                            "homePage":"<a href='http://www.cnblogs.com/iyangyuan/p/3471367.html'>google</a>",
+                            "favorite":
+                            [
+                              "SPORT",
+                              "HIKING"
+                            ]
+                        },
+                        {
+                            "name":"LIN",
+                            "sex":"0",
+                            "age": 20,
+                             "homePage":"<a href='javascript:void(0);'>LIN PAGE</a>",
+                            "favorite":
+                            [
+                              "SONG",
+                              "SHOPPING"
+                            ]
+                        },
+                        {
+                            "name":"MISS LIN",
+                            "sex":"1",
+                            "age": 30,
+                             "homePage":"<a href='javascript:void(0);'>LIN PAGE</a>",
+                            "favorite":
+                            [
+                              "SPORT",
+                              "HIKING"
+                            ]
+                        },
+                        {
+                            "name":"MISS CHEN",
+                            "sex":"1",
+                            "age": 19,
+                             "homePage":"<a href='javascript:void(0);'>MISS CHEN PAGE</a>",
+                            "favorite":
+                            [
+                              "SPORT",
+                              "HIKING",
+                              "SHOPPING"
+                            ]
+                        }
+                    ]
+                };
+        
+        //注册一个Handlebars模版，通过id找到某一个模版，获取模版的html框架
+        //$("#table-template").html()是jquery的语法，不懂的童鞋请恶补。。。
+        var myTemplate = Handlebars.compile($("#table-template").html());
+
+        Handlebars.registerHelper("compare",function(v1,v2,options){
+          if(v1 >= v2){
+            return options.fn(this);
+          }else{
+            return options.inverse(this);
+          }
+        });
+        
+        Handlebars.registerHelper("transformat",function(value){
+          if(value == 0){
+              return "男";
+          }else if(value == 1){
+              return "女";
+          }
+        });
+        //将json对象用刚刚注册的Handlebars模版封装，得到最终的html，插入到基础table中。
+        $('#tableList').html(myTemplate(data));
+      });
+    </script>
+  </body>
+</html>
