@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Translate</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-3.1.0.js"></script>
+	
+
+	<style type="text/css">
+		.result{
+			width: 300px;
+			height: 300px;
+			background-color: yellow;
+		}
+	</style>
+
+</head>
+<body>
+	<h1>Translate</h1>
+	
+	<div>
+		<input class="txt" />
+		<button data-bind="click: addToDoItem">CLICK</button>
+	</div>	
+
+	<div class="result">
+	<h3>Translate 中文：</h3>
+	<table>
+		<tbody data-bind="foreach: toDoItems">
+			<tr>
+				<td><label data-bind="text: toDoItem"></label></td>
+			</tr>
+		</tbody>
+	</table>		
+	</div>
+
+
+
+<script type="text/javascript" src="translate.js"></script>
+</body>
+</html>
