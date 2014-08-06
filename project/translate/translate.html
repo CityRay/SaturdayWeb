@@ -9,9 +9,19 @@
 
 	<style type="text/css">
 		.result{
-			width: 300px;
+			float: left;
+			width: 600px;
 			height: 300px;
 			background-color: yellow;
+		}
+		.txt{
+			width: 500px;
+			height:300px;
+		}
+
+		.right{
+			float: left;
+			width: 520px;
 		}
 	</style>
 
@@ -19,8 +29,8 @@
 <body>
 	<h1>Translate</h1>
 	
-	<div>
-		<input class="txt" />
+	<div class="right">
+		<textarea class="txt"></textarea>
 		<button data-bind="click: addToDoItem">CLICK</button>
 	</div>	
 

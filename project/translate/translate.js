@@ -16,7 +16,11 @@ $(document).ready(function(){
 			//console.log(this.ar[item].or);
 			if(this.toDoItem === this.ar[item].or){
 				this.toDoItem = this.ar[item].trans;
-				console.log(this.ar[item].trans);
+				//console.log(this.ar[item].trans);
+				break;
+			}else{
+				this.toDoItem = "noKnow";
+				break;
 			}
 		}
 
@@ -50,7 +54,6 @@ $(document).ready(function(){
 			this.toDoItems.push(new ToDo($('.txt').val()));
 			$('.txt').val('');
 		}
-
 
 	}
 
