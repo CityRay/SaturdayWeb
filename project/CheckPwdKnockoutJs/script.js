@@ -59,6 +59,7 @@ $(document).ready(function(){
 					{
 						this.count=0;
 						console.log(this.count);
+						this.pwd("");
 						this.newpwd(randerpwd());
 						return "密碼錯誤已5次了哦!!!密碼重新編碼!!!";
 					}		
