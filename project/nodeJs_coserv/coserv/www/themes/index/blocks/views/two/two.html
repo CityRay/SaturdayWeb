@@ -1,0 +1,58 @@
+<html> 
+<head>
+<style type="text/css">
+	span{
+		font-size: 20em;
+		color: #8000FF;
+	}
+
+</style>
+<script type="text/javascript">
+	var countdownnumber=5;
+	var countdownnumbers=9;
+	var countdownid;
+
+	function initial(){ countdownfunc(); }
+
+	function countdownfunc()
+	{
+		var x = document.getElementById("countdown");
+		var xs = document.getElementById("countdowns");
+		x.innerHTML=countdownnumber;
+		xs.innerHTML=countdownnumbers;
+
+		if (countdownnumbers==0)
+		{ 
+
+			if(countdownnumber == 0)
+			{
+				alert("倒數結束");
+		  		clearTimeout(countdownid);
+			}
+			else{
+				countdownnumbers = 9;
+				countdownnumber--;
+				countdownid=setTimeout(countdownfunc,100);
+			}
+		  
+		}else
+		{
+			countdownnumbers--;
+			if(countdownid)
+			{
+		   		clearTimeout(countdownid);
+		  	}
+
+		  	countdownid=setTimeout(countdownfunc,100);
+		}
+	}
+</script>
+</head>
+<body onload="initial();">
+<h1>倒數時間:</h1>
+
+<span id="countdown"></span>
+<span>.</span>
+<span id="countdowns"></span>
+</body>
+</html>

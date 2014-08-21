@@ -1,0 +1,27 @@
+<h1>HELLO1245647848</h1>
+<h3><a href="/">HOME</a></h3>
+<p><%=ph.one%></p>
+
+<% for(var i=1; i < 6; i++){%>
+<button type="button">CLICK ME<%=i%>!!!</button>
+<%}%>
+
+<h1 id="myHeader" onclick="getValue()">This is my Header</h1>
+<h1 id="myHeader2" onclick="<%=ctrl%>.getValue2()">This is my Header222222</h1>
+
+<form action="javascript:<%=ctrl%>.getColor();" method="post">
+	<fieldset>
+	  <legend>What color do you like?</legend>
+	  <input type="radio" name="rdColor" value="red" /> Red <br />
+	  <input type="radio" name="rdColor" value="green" /> Green <br />
+	  <input type="radio" name="rdColor" value="blue" /> Blue <br />  
+	</fieldset>
+	<input type="submit" value="送出" />
+</form>
+
+<script type="text/javascript">
+	function getValue(){
+		var x = document.getElementById("myHeader");
+		alert(x.innerHTML);
+	}
+</script>

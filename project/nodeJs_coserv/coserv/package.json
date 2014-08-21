@@ -1,0 +1,63 @@
+{
+  "name": "coserv",
+  "version": "0.8.9",
+  "description": "Block-based, cross-origin web server.",
+  "engines": "0.10.21",
+  "main": "coServ.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coimotion/coServ.git"
+  },
+  "keywords": [
+    "Node.js",
+    "COIMOTION",
+    "single-page",
+    "coserv",
+    "SASS"
+  ],
+  "author": {
+    "name": "Ben Lue, Gocharm Inc."
+  },
+  "license": "MIT",
+  "dependencies": {
+    "async": "^0.9.0",
+    "body-parser": "~1.0.2",
+    "connect": "~3.0.0-rc.1",
+    "connect-multiparty": "~1.0.3",
+    "cookie-parser": "~1.0.1",
+    "moment": "~2.5.1",
+    "morgan": "~1.0.0",
+    "ncp": "^0.5.1",
+    "node-sass": "^0.9.3",
+    "nodemailer": "~0.6.0",
+    "request": "^2.36.0",
+    "serve-static": "~1.1.0",
+    "static-favicon": "~1.0.2",
+    "validator": "~3.5.1",
+    "xml2js": "~0.4.2"
+  },
+  "bugs": {
+    "url": "https://github.com/coimotion/coServ/issues"
+  },
+  "homepage": "https://github.com/coimotion/coServ",
+  "_id": "coserv@0.8.9",
+  "_shasum": "2073223c9ddf9e23d1163a5d9e1defd0cf9ee994",
+  "_from": "coserv@",
+  "_npmVersion": "1.4.9",
+  "_npmUser": {
+    "name": "coimotion",
+    "email": "mary@gocharm.com.tw"
+  },
+  "maintainers": [
+    {
+      "name": "coimotion",
+      "email": "mary@gocharm.com.tw"
+    }
+  ],
+  "dist": {
+    "shasum": "2073223c9ddf9e23d1163a5d9e1defd0cf9ee994",
+    "tarball": "http://registry.npmjs.org/coserv/-/coserv-0.8.9.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/coserv/-/coserv-0.8.9.tgz"
+}
